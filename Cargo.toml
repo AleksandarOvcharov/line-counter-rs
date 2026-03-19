@@ -1,0 +1,28 @@
+[package]
+name = "line-counter"
+version = "0.1.0"
+edition = "2024"
+description = "A fast, parallel line counter tool with TUI support"
+
+[[bin]]
+name = "lc"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.6.0", features = ["derive"] }
+rayon = "1.11.0"
+ignore = "0.4.25"
+indicatif = { version = "0.18.4", features = ["rayon"] }
+ratatui = "0.30.0"
+crossterm = "0.29.0"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+csv = "1.4.0"
+chrono = { version = "0.4.44", features = ["serde"] }
+glob = "0.3.3"
+dirs = "6.0.0"
+anyhow = "1.0.102"
+
+[profile.release]
+opt-level = 3
+lto = true
